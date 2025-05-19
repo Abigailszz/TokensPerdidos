@@ -1,0 +1,47 @@
+{ "equipos": [
+		{
+		"nombre_equipo": "tokesntsPerdidos",
+		"identidad_equipo": "https://docs.google.com/document/d/1P6TF2WBT1XUxWsMcAUJlm25KTKQCkoY_ZEMxzx2_n6Q/edit?tab=t.0",
+		"link": "https://docs.google.com/document/d/1P6TF2WBT1XUxWsMcAUJlm25KTKQCkoY_ZEMxzx2_n6Q/edit?tab=t.0",
+		"asignatura": "sintaxis",
+		"carrera": "isi",
+		"universidad_regional": "frre",
+		"dirección": {
+			"calle": "fench 432",
+			"ciudad": "resistencia",
+			"país": "chaco"	
+	},
+	"alianza_equipo": "blah blah blah",
+	"integrantes": [
+		{
+		"nombre": "mia",
+		"edad": 29,
+		"cargo": "admin",
+		"foto": "https://docs.google.com/document/d/1P6TF2WBT1XUxWsMcAUJlm25KTKQCkoY_ZEMxzx2_n6Q/edit?tab=t.0",
+		"email": "hhhh@gmail.com",
+		"habilidades": "estudiar",
+		"salario": 4232,
+		"activo": false
+		} ],
+	"proyectos": [
+	{
+		"nombre": "trabajo final",
+		"estado": "activo",	
+		"resumen": "blah blah blah",
+		"tareas": [
+		{
+			"nombre": "blah blah blah",
+			"estado": "finalizado",
+			"resumen": "blah blah blah",
+			"fecha_inicio": "2022-09-10",
+			"fecha_fin": "2022-12-10"
+		} ],
+		"fecha_inicio": "2022-02-10",
+		"fecha_fin":"2022-02-10",
+		"video":"https://docs.google.com/document/d/1P6TF2WBT1XUxWsMcAUJlm25KTKQCkoY_ZEMxzx2_n6Q/edit?tab=t.0",
+		"conclusion": "blah blah blah",
+	} ]
+	}],
+"version": "2.3",
+"firma_digital": "eqweqeqe"
+}
