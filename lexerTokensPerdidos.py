@@ -135,55 +135,48 @@ def clear_text():
     output_text.delete(1.0, tk.END)
 
 
-# Configurar la ventana principal de tkinter
+# Ventana con tkinter
+
 root = tk.Tk()
-root.title("Visor de Tokens de Lexer by AlphaCode")
-root.configure(bg="gray14")  # Cambiar el color de fondo de la ventana principal
-
-
-frame = tk.Frame(root, bg="gray14")
-frame.pack(pady=10)
-
-
-# Cuadro de texto1
-input_text = scrolledtext.ScrolledText(frame, width=100, height=10, bg="thistle3", fg="black")
-input_text.pack(pady=10)
-input_text.insert(tk.END, mensaje)
-
-
-# Vincular la tecla Enter a la función process_input
-input_text.bind("<Return>", process_input)
-
-
-# Cuadro de texto2
-output_text = scrolledtext.ScrolledText(frame, width=100, height=20, bg="thistle3", fg="black")
-output_text.pack(pady=10)
-
-
-# Tamaño de botones y fondo
-button_frame = tk.Frame(root, bg="gray14")
-button_frame.pack(pady=10, side=tk.BOTTOM)
-
-
-# Botones
-open_button = tk.Button(button_frame, text="Abrir Archivo", command=open_file, bg="thistle3", fg="black")
-open_button.pack(side=tk.LEFT, padx=10)
-
-
-process_button = tk.Button(button_frame, text="Compilar", command=process_input, bg="thistle3", fg="black")
-process_button.pack(side=tk.LEFT, padx=10)
-
-
-clear_button = tk.Button(button_frame, text="Limpiar Pantalla", command=clear_text, bg="thistle3", fg="black")
-clear_button.pack(side=tk.LEFT, padx=10)
-
-
-exit_button = tk.Button(button_frame, text="Salir", command=root.quit, bg="thistle3", fg="black")
-exit_button.pack(side=tk.LEFT, padx=10)
-
-
-# Hacer que la ventana no sea redimensionable
+root.title("Analizador Léxico | TokensPerdidos")
+root.geometry("1000x600")
+root.configure(bg="#1e1e1e")
 root.resizable(False, False)
 
+
+sidebar = tk.Frame(root, bg="#121212", width=200)
+sidebar.pack(side=tk.LEFT, fill=tk.Y)
+
+btn_style = {'bg': "#4d4d4d", 'fg': 'white', 'activebackground': '#444', 'width': 20, 'height': 2, 'bd': 0}
+
+tk.Label(sidebar, text="Menú", bg="#121212", fg="#fff", font=("Arial", 14, "bold")).pack(pady=20)
+
+tk.Button(sidebar, text="📂 Abrir Archivo", command=open_file, **btn_style).pack(pady=10)
+tk.Button(sidebar, text="🧠 Compilar", command=process_input, **btn_style).pack(pady=10)
+tk.Button(sidebar, text="🧹 Limpiar", command=clear_text, **btn_style).pack(pady=10)
+tk.Button(sidebar, text="❌ Salir", command=root.quit, **btn_style).pack(pady=10)
+
+
+main_frame = tk.Frame(root, bg="#1e1e1e")
+main_frame.pack(side=tk.RIGHT, expand=True, fill=tk.BOTH)
+
+# Editor de texto
+input_label = tk.Label(main_frame, text="Ingrese el texto a analizar", bg="#1e1e1e", fg="white", font=("Consolas", 12, "bold"))
+input_label.pack(pady=(10, 0))
+
+input_text = scrolledtext.ScrolledText(main_frame, width=100, height=12, bg="#2e2e2e", fg="white", insertbackground='white',
+                                       font=("Consolas", 12), borderwidth=2, relief="solid")
+input_text.pack(pady=10)
+
+# Consola de salida
+output_label = tk.Label(main_frame, text="Consola de tokens", bg="#1e1e1e", fg="white", font=("Consolas", 12, "bold"))
+output_label.pack(pady=(10, 0))
+
+output_text = scrolledtext.ScrolledText(main_frame, width=100, height=15, bg="#1e1e1e", fg="#00ff00", insertbackground='white',
+                                        font=("Consolas", 11), borderwidth=2, relief="solid")
+output_text.pack(pady=10)
+
+# Tecla Enter = Compilar
+input_text.bind("<Return>", process_input)
 
 root.mainloop()
